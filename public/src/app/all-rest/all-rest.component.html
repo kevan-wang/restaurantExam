@@ -1,0 +1,22 @@
+<body>
+  <button [routerLink]="['/restaurants/new']">New Restaurant</button>
+  <table>
+    <tr>
+      <th>Restaurant</th>
+      <th>Cuisine</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let rest of allRestaurants">
+      <td>{{rest.name}}</td>
+      <td>{{rest.cuisine}}</td> 
+      <td>
+        <button [routerLink]="['/restaurants', rest._id]">Read Reviews</button>
+        <button [routerLink]="['/restaurants', rest._id, 'edit']">Update</button>
+        <button (click)="delete(rest._id)" *ngIf="checkTime(rest.createdAt)">Delete</button>
+        <button *ngIf="!checkTime(rest.createdAt)" disabled >Delete</button>
+      </td>
+    </tr>
+  </table>  
+</body>
+
+<router-outlet></router-outlet>

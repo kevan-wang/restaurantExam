@@ -1,0 +1,17 @@
+
+.error {
+    color: red;
+}
+
+table {
+    margin-top: 10px;
+    width: 600px;
+}
+
+td {
+    text-align: center;
+}
+
+button {
+    margin-right: 30px;
+}

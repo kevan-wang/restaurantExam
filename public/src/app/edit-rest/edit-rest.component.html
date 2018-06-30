@@ -1,0 +1,39 @@
+<h2>Update {{restaurant.name}}</h2>
+
+<div *ngFor="let error of errorMessages">
+  <p class="error">{{error}}</p>
+</div>
+
+<!-- <p class="error" *ngIf="!name.valid">Products must contain a name.</p>
+<p class="error" *ngIf="!qty.valid">Products must contain a quantity.</p>
+<p class="error" *ngIf="!price.valid">Products must contain a quantity.</p> -->
+
+<form>
+  <div class="field">
+    <h2>Name:</h2>
+    <input 
+      type="text" 
+      name="name"
+      required
+      minlength="3"
+      [(ngModel)]="restaurant.name"
+      #name="ngModel"
+    >
+  </div>
+  <div class="field">
+    <h2>Cuisine:</h2>
+    <input
+      type="text" 
+      name="qty"
+      required
+      min="0"
+      [(ngModel)]="restaurant.cuisine"
+      #qty="ngModel"
+    >    
+  </div>
+  <button [routerLink]="['/restaurants']">Cancel</button>
+  <button (click)="update()">Update</button>
+</form>
+
+
+
